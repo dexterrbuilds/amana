@@ -1,0 +1,320 @@
+:root {
+    --primary-blue: #0052CC;
+    --light-blue: #F5F9FF;
+    --text-primary: #1A1F36;
+    --text-secondary: #6B7280;
+    --border-color: #E5E7EB;
+    --white: #FFFFFF;
+    --success: #00B087;
+    --warning: #F59E0B;
+  }
+  
+  .dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--light-blue);
+  }
+  
+  /* Sidebar Styles */
+  .sidebar {
+    width: 260px;
+    background-color: var(--primary-blue);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .logo {
+    padding: 16px 0 32px;
+    margin: 0;
+  }
+  
+  .logo img {
+    width: 40px;
+    height: auto;
+  }
+  
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #4a5568;
+    padding: 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  
+  .nav-item.active {
+    background-color: #ebf8ff;
+    color: #2b6cb0;
+  }
+  
+  .nav-item:hover {
+    background-color: #ebf8ff;
+    cursor: pointer;
+  }
+  
+  .nav-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .sign-out {
+    margin-top: auto;
+    color: #FFA500;
+  }
+  
+  /* Main Content */
+  .main-content {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+  }
+  
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  
+  .search-container {
+    position: relative;
+    width: 400px;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 12px 16px 12px 40px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--white);
+  }
+  
+  .search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+  }
+  
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  /* Welcome Banner */
+  .welcome-banner {
+    background-color: var(--primary-blue);
+    border-radius: 16px;
+    padding: 32px 32px 0;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .welcome-content {
+    max-width: 60%;
+  }
+  
+  .welcome-title {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+  
+  .welcome-text {
+    opacity: 0.9;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  /* Statistics Section */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  
+  .card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 24px;
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+  
+  /* Class Progress */
+  .progress-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .progress-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .progress-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .progress-title {
+    font-weight: 500;
+  }
+  
+  .progress-subtitle {
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+  
+  .progress-bar {
+    width: 100px;
+    height: 100px;
+  }
+  
+  /* Staff Room */
+  .staff-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .staff-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+  
+  .staff-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+  }
+  
+  .staff-info {
+    flex: 1;
+  }
+  
+  .staff-name {
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  
+  .staff-message {
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+  
+  .staff-time {
+    color: var(--text-secondary);
+    font-size: 12px;
+  }
+  
+  /* Upcoming Activities */
+  .activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .activity-item {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+  
+  .activity-date {
+    background: var(--primary-blue);
+    color: white;
+    padding: 8px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 48px;
+  }
+  
+  .activity-info {
+    flex: 1;
+  }
+  
+  .activity-title {
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  
+  .activity-time {
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+  
+  .activity-status {
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  
+  .status-upcoming {
+    background-color: #FEF3C7;
+    color: #92400E;
+  }
+  
+  /* Documents Section */
+  .document-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .document-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: var(--white);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+  }
+  
+  .document-icon {
+    color: var(--primary-blue);
+  }
+  
+  .document-info {
+    flex: 1;
+  }
+  
+  .document-title {
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  
+  .document-date {
+    color: var(--text-secondary);
+    font-size: 12px;
+  }
+  
