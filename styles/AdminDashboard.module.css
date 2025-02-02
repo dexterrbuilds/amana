@@ -230,15 +230,14 @@
 
 .mainContent {
   margin-right: 400px;
-  padding: 1.5rem;
+  padding: 10px;
   background-color: #efefef;
   min-height: 100vh;
   overflow-y: auto;
   width: calc(100% - 620px); /* 240px for left sidebar + 320px for right sidebar */
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 240px;
-  bottom: 0;
   right: 320px;
 }
 

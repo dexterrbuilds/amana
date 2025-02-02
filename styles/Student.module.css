@@ -1,10 +1,18 @@
+.body {
+  margin: 0;
+}
 
+.container {
+  min-height: 100vh;
+  background-color: white;
+  min-width: 90vw;
+}
 
 .dashboardContainer {
   display: flex;
   min-height: 100vh;
   background-color: #f8f7ff;
-  padding: 20px;
+  padding: 20px 30px 20px 0;
 }
 
 /* Sidebar Styles */
@@ -16,10 +24,7 @@
   height: 100vh;
   background-color: #8a70ff;
   border-right: 1px solid #e2e8f0;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  padding: 1rem;
   overflow-y: auto;
 }
 
@@ -76,8 +81,16 @@
 
 /* Main Content Styles */
 .mainContent {
-  flex: 1;
-  margin-left: 300px;
+  padding-top: 20px;
+  min-height: 100vh;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  width: calc(100% - 400px);
+  position: absolute;
+  top: 0;
+  left: 300px;
+  right: 0;
+  background-color: #efefef;
 }
 
 .header {
@@ -289,17 +302,29 @@
 }
 
 @media (max-width: 480px) {
-  .dashboardContainer {
-    display: block;
-    width: 100vw;
+  .container {
+    width: 90vw;
   }
 
-  .sidebar {
-    display: none;
-  }
-  .sidebarVisible {
+  .dashboardContainer {
     display: block;
+    width: 90vw;
+    padding: 20px;
   }
+
+  .header {
+    width: 100%;
+    justify-content: center;
+    position: fixed;
+    background-color: white;
+    padding: 10px 0;
+    top: 0;
+  }
+
+  .searchBar {
+    width: 120px;
+  }
+
   .hamburgerMenu {
     display: block;
     position: fixed;
@@ -318,5 +343,39 @@
 
   .courseCards {
     display: block;
+  }
+
+  .mainContent {
+    width: 100%;
+    left: 0;
+    margin-left: 0;
+    padding: 60px 10px 0;
+  }
+
+  .hamburgerMenu {
+    display: block;
+    position: fixed;
+    top: 15px;
+    left: 10px;
+    z-index: 1000;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 4px 0;
+    transition: 0.4s;
+  }
+  .logo {
+    margin-left: 30px;
+  }
+
+  .welcomeBanner {
+    width: 100%;
   }
 }
