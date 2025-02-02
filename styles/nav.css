@@ -1,11 +1,4 @@
 
-nav div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    width: 200px;
-}
 
 .button-container {
     display: flex;
@@ -14,25 +7,7 @@ nav div {
     align-items: center;
 }
 
-.button-container div {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    align-items: center;
-}
-
-.school-portal {
-  background-color: blue;
-  color: white;
-  text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  margin-bottom: 24px;
-}
-
-.login-button {
+.button {
   padding: 10px 12px;
   background-color: blue;
   color: white;

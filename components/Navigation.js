@@ -12,7 +12,7 @@ export default function Navigation() {
       <div>
         <div className="button-container">
           <div>
-            <Link href="/" className="school-portal">
+            <Link href="/" className="button">
               <span className="font-bold text-xl">Home</span>
             </Link>
           </div>
@@ -30,7 +30,7 @@ export default function Navigation() {
                 </button>
               </>
             ) : (
-              <Link href="/login" className="login-button">
+              <Link href="/login" className="button">
                 Login
               </Link>
             )}

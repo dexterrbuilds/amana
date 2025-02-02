@@ -1,0 +1,322 @@
+
+
+.dashboardContainer {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8f7ff;
+  padding: 20px;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  background-color: #8a70ff;
+  border-right: 1px solid #e2e8f0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+}
+
+.sidebarLink {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  color: #4a5568;
+  border-radius: 0.5rem;
+  text-decoration: none;
+}
+
+.sidebarLink:hover {
+  background-color: #f7fafc;
+  cursor: pointer;
+}
+
+.sidebarLinkActive {
+  background-color: #ebf8ff;
+  color: #2b6cb0;
+}
+
+.logo {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 32px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.navItem.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.navItem:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.navIcon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Main Content Styles */
+.mainContent {
+  flex: 1;
+  margin-left: 300px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.searchBar {
+  background: white;
+  border-radius: 30px;
+  padding: 12px 24px;
+  width: 300px;
+  border: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.userAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.userInfo {
+  text-align: right;
+}
+
+.userName {
+  font-weight: 600;
+  color: #333333;
+}
+
+.userYear {
+  color: #666666;
+  font-size: 14px;
+}
+
+/* Welcome Banner */
+.welcomeBanner {
+  background-color: #8a70ff;
+  border-radius: 16px;
+  padding: 32px 32px 0;
+  color: white;
+  margin-bottom: 32px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+}
+
+.welcomeContent {
+  max-width: 50%;
+}
+
+.welcomeDate {
+  opacity: 0.8;
+  margin-bottom: 16px;
+}
+
+.welcomeTitle {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.welcomeSubtitle {
+  opacity: 0.8;
+}
+
+.welcomeIllustrations {
+
+}
+
+/* Finance Section */
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.seeAll {
+  color: #8a70ff;
+  text-decoration: none;
+}
+
+.profileCard {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.financeCardActive {
+  border: 2px solid #8a70ff;
+}
+
+.financeAmount {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.financeLabel {
+  color: #666666;
+  font-size: 14px;
+}
+
+/* Course Section */
+.courseCards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.courseCard {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.courseCardActive {
+  background-color: #f3f0ff;
+}
+
+.courseInfo h3 {
+  margin-bottom: 8px;
+  color: #333333;
+}
+
+.viewButton {
+  background-color: #8a70ff;
+  color: white;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.viewButton:hover {
+  opacity: 0.9;
+}
+
+/* Instructors Section */
+.instructorsSection {
+  margin-top: 32px;
+}
+
+.instructorAvatars {
+  display: flex;
+  gap: 8px;
+}
+
+.instructorAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+/* Notice Section */
+.noticeCard {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  margin-top: 16px;
+}
+
+.noticeTitle {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.noticeText {
+  color: #666666;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.seeMore {
+  color: #8a70ff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.sidebarOpen {
+  display: block;
+  z-index: 999;
+}
+
+.hamburgerMenu {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .dashboardContainer {
+    display: block;
+    width: 100vw;
+  }
+
+  .sidebar {
+    display: none;
+  }
+  .sidebarVisible {
+    display: block;
+  }
+  .hamburgerMenu {
+    display: block;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  .sectionHeader {
+    display: block;
+  }
+
+  .courseCards {
+    display: block;
+  }
+}

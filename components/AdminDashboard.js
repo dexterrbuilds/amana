@@ -6,7 +6,7 @@ import { useAuth } from "../hooks/useAuth"
 import { signOut } from "firebase/auth"
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import "../styles/AdminDashboard.css";
+import styles from "../styles/AdminDashboard.module.css";
 import {
   Search,
   Bell,
@@ -199,53 +199,53 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div className={"container"}>
-      <div className={"mainGrid"}>
+    <div className={styles.container}>
+      <div className={styles.mainGrid}>
         {/* Left Sidebar */}
-        <aside className={`sidebar ${sidebarVisible ? "visible" : ""}`}>
-          <div className={"sidebarLogo"}>
+        <aside className={`${styles.sidebar} ${sidebarVisible ? styles.sidebarVisible : ""}`}>
+          <div className={styles.sidebarLogo}>
             <img src="amana.jpg" width={40} height={40} alt="Logo" />
             <span className="text-2xl font-semibold">AMANA</span>
           </div>
 
-          <nav className={'sidebarNav'}>
-            <div className={`sidebarLink ${tab === "dashboard" ? "sidebarLinkActive" : ""}`} onClick={() => { setTab("dashboard"); setSidebarVisible(!sidebarVisible); }}>
+          <nav className={styles.sidebarNav}>
+            <div className={`${styles.sidebarLink} ${tab === "dashboard" ? styles.sidebarLinkActive : ""}`} onClick={() => { setTab("dashboard"); setSidebarVisible(!sidebarVisible); }}>
               <Home size={20} />
               <span>Dashboard</span>
             </div>
-            <div className={`sidebarLink ${tab === "students" ? "sidebarLinkActive" : ""}`} onClick={() => { setTab("students"); setSidebarVisible(!sidebarVisible); }}>
+            <div className={`${styles.sidebarLink} ${tab === "students" ? styles.sidebarLinkActive : ""}`} onClick={() => { setTab("students"); setSidebarVisible(!sidebarVisible); }}>
               <Users size={20} />
               <span>Students</span>
             </div>
-            <div className={`sidebarLink ${tab === "teachers" ? "sidebarLinkActive" : ""}`} onClick={() => { setTab("teachers"); setSidebarVisible(!sidebarVisible); }}>
+            <div className={`${styles.sidebarLink} ${tab === "teachers" ? styles.sidebarLinkActive : ""}`} onClick={() => { setTab("teachers"); setSidebarVisible(!sidebarVisible); }}>
               <GraduationCap size={20} />
               <span>Teachers</span>
             </div>
-            <div className={`sidebarLink ${tab === "parents" ? "sidebarLinkActive" : ""}`} onClick={() => { setTab("parents"); setSidebarVisible(!sidebarVisible); }}>
+            <div className={`${styles.sidebarLink} ${tab === "parents" ? styles.sidebarLinkActive : ""}`} onClick={() => { setTab("parents"); setSidebarVisible(!sidebarVisible); }}>
               <UserPlus size={20} />
               <span>Parents</span>
             </div>
-            <div className={`sidebarLink ${tab === "account" ? "sidebarLinkActive" : ""}`} onClick={() => { setTab("account"); setSidebarVisible(!sidebarVisible); }}>
+            <div className={`${styles.sidebarLink} ${tab === "account" ? styles.sidebarLinkActive : ""}`} onClick={() => { setTab("account"); setSidebarVisible(!sidebarVisible); }}>
               <DollarSign size={20} />
               <span>Account</span>
             </div>
-            <div className={`sidebarLink ${tab === "class" ? "sidebarLinkActive" : ""}`} onClick={() => { setTab("class"); setSidebarVisible(!sidebarVisible); }}>
+            <div className={`${styles.sidebarLink} ${tab === "class" ? styles.sidebarLinkActive : ""}`} onClick={() => { setTab("class"); setSidebarVisible(!sidebarVisible); }}>
               <Book size={20} />
               <span>Class</span>
             </div>
-            <div className={`sidebarLink ${tab === "exam" ? "sidebarLinkActive" : ""}`} onClick={() => { setTab("exam"); setSidebarVisible(!sidebarVisible); }}>
+            <div className={`${styles.sidebarLink} ${tab === "exam" ? styles.sidebarLinkActive : ""}`} onClick={() => { setTab("exam"); setSidebarVisible(!sidebarVisible); }}>
               <FileText size={20} />
               <span>Exam</span>
             </div>
-            <div className={`sidebarLink ${tab === "transport" ? "sidebarLinkActive" : ""}`} onClick={() => { setTab("transport"); setSidebarVisible(!sidebarVisible); }}>
+            <div className={`${styles.sidebarLink} ${tab === "transport" ? styles.sidebarLinkActive : ""}`} onClick={() => { setTab("transport"); setSidebarVisible(!sidebarVisible); }}>
               <Bus size={20} />
               <span>Transport</span>
             </div>
-            <div className={`sidebarLink ${tab === "settings" ? "sidebarLinkActive" : ""}`} onClick={() => { setTab("settings"); setSidebarVisible(!sidebarVisible); }}>
+            <div className={`${styles.sidebarLink} ${tab === "settings" ? styles.sidebarLinkActive : ""}`} onClick={() => { setTab("settings"); setSidebarVisible(!sidebarVisible); }}>
               <Settings size={20} />
               <span>Settings</span>
             </div>
-            <div className={'sidebarLink'} onClick={() => signOut(auth)}>
+            <div className={styles.sidebarLink} onClick={() => signOut(auth)}>
               <LogOut size={20} />
               <span>Log out</span>
             </div>
@@ -253,21 +253,21 @@ export default function AdminDashboard() {
         </aside>
 
         {/* Mobile Menu Toggle */}
-        <div className={`hamburger ${sidebarVisible ? "active" : ""}`} onClick={() => setSidebarVisible(!sidebarVisible)}>
-          <div className="bar"></div>
-          <div className="bar"></div>
-          <div className="bar"></div>
+        <div className={`${styles.hamburger} ${sidebarVisible ? styles.active : ""}`} onClick={() => setSidebarVisible(!sidebarVisible)}>
+          <div className={styles.bar}></div>
+          <div className={styles.bar}></div>
+          <div className={styles.bar}></div>
         </div>
 
         {/* Main Content */}
-        <main className={'mainContent'}>
+        <main className={styles.mainContent}>
           {/* Header */}
-          <header className={'header'}>
-            <div className={'searchBarContainer'}>
+          <header className={styles.header}>
+            <div className={styles.searchBarContainer}>
               <Search size={20} />
-              <input className="searchBar" type="text" placeholder="Search" />
+              <input className={styles.searchBar} type="text" placeholder="Search" />
             </div>
-            <div className={'userNav'}>
+            <div className={styles.userNav}>
               <button className="p-2 hover:bg-gray-100 rounded-lg">
                 <Mail size={20} />
               </button>
@@ -275,26 +275,25 @@ export default function AdminDashboard() {
                 <Bell size={20} />
               </button>
               <div className="flex items-center gap-2">
-
                 <span className="font-medium">Admin</span>
               </div>
             </div>
           </header>
 
           {/* Stats Grid */}
-          <div className={'statsGrid'}>
+          <div className={styles.statsGrid}>
             {stats.map((stat, index) => (
-              <div key={index} className={'statCard'}>
-                <div className={'statNumber'}>{stat.value}</div>
-                <div className={'statLabel'}>{stat.label}</div>
+              <div key={index} className={styles.statCard}>
+                <div className={styles.statNumber}>{stat.value}</div>
+                <div className={styles.statLabel}>{stat.label}</div>
               </div>
             ))}
           </div>
           {tab === "dashboard" && (
             <div>
               {/* Charts Section */}
-              <div className={'chartSection'}>
-                <div className={'chartHeader'}>
+              <div className={styles.chartSection}>
+                <div className={styles.chartHeader}>
                   <div className="admin-dashboard">
                     <div className="content">
                       {/* Toast Message */}
@@ -307,69 +306,70 @@ export default function AdminDashboard() {
                       )}
                       <div>
                         {/* Create New User */}
-                        <div className="create-user">
-                          <h3 className="text-xl font-semibold cnu-head">Create New User</h3>
-                          <form onSubmit={handleCreateUser} className="cnu-form">
-                            <div className="cnu-form-group">
+                        <div className={styles.createUser}>
+                          <h3 className={styles.cnuHead}>Create New User</h3>
+                          <form onSubmit={handleCreateUser} className={styles.cnuForm}>
+                            <div className={styles.cnuFormGroup}>
                               <div>
-                                <label className="block font-medium">Name</label>
+                                <label className={styles.formLabel}>Name</label>
                                 <input
+                                  className={styles.formInput}
                                   value={newUser.name}
                                   onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
                                   required
                                 />
                               </div>
                               <div>
-                                <label className="block font-medium">Email</label>
+                                <label className={styles.formLabel}>Email</label>
                                 <input
                                   type="email"
+                                  className={styles.formInput}
                                   value={newUser.email}
                                   onChange={(e) => setNewUser({ ...newUser, email: e.target.value })}
                                   required
                                 />
                               </div>
                               <div>
-                                <label className="form-label">Gender</label>
-                                <select value={newUser.gender} onChange={(e) => setNewUser({ ...newUser, gender: e.target.value })} className="form-input">
+                                <label className={styles.formLabel}>Gender</label>
+                                <select value={newUser.gender} onChange={(e) => setNewUser({ ...newUser, gender: e.target.value })} className={styles.formSelect}>
                                   <option value="">Select gender</option>
                                   <option value="male">Male</option>
                                   <option value="female">Female</option>
                                 </select>
                               </div>
                             </div>
-                            <div className="cnu-form-group">
+                            <div className={styles.cnuFormGroup}>
                               <div>
-                                <label className="block font-medium">Role</label>
+                                <label className={styles.formLabel}>Role</label>
                                 <select
                                   value={newUser.role}
                                   onChange={(e) => setNewUser({ ...newUser, role: e.target.value })}
-                                  className="w-full px-4 py-2 border border-gray-300 rounded-md"
-                                >
+                                  className={styles.formSelect}                                >
                                   <option value="student">Student</option>
                                   <option value="teacher">Teacher</option>
                                 </select>
                               </div>
                               {newUser.role === "student" && (
                                 <>
-                                  <select value={newUser.class} onChange={(e) => handleClassChange(e.target.value)} className="w-full px-4 py-2 border">
+                                  <select className={styles.formSelect} value={newUser.class} onChange={(e) => handleClassChange(e.target.value)} >
                                     <option value="">Select Class</option>
                                     {classOptions.map((cls) => <option key={cls} value={cls}>{cls}</option>)}
                                   </select>
-                                  <input value={newUser.teacher} readOnly placeholder="Assigned Teacher" className="w-full px-4 py-2 border" />
+                                  <input value={newUser.teacher} readOnly placeholder="Assigned Teacher" className={styles.formInput} />
                                 </>
                               )}
                               {newUser.role === "teacher" && (
                                 <>
-                                  <input value={newUser.phone} onChange={(e) => setNewUser({ ...newUser, phone: e.target.value })} placeholder="Phone Number" required />
-                                  <select value={newUser.class} onChange={(e) => setNewUser({ ...newUser, class: e.target.value })} className="w-full px-4 py-2 border">
+                                  <input className={styles.formInput} value={newUser.phone} onChange={(e) => setNewUser({ ...newUser, phone: e.target.value })} placeholder="Phone Number" required />
+                                  <select className={styles.formSelect} value={newUser.class} onChange={(e) => setNewUser({ ...newUser, class: e.target.value })}>
                                     <option value="">Assign Class</option>
                                     {classOptions.map((cls) => <option key={cls} value={cls}>{cls}</option>)}
                                   </select>
-                                  <input value={newUser.subjects} onChange={(e) => setNewUser({ ...newUser, subjects: e.target.value.split(", ") })} placeholder="Subjects (comma separated)" className="w-full px-4 py-2 border" required />
+                                  <input className={styles.formInput} value={newUser.subjects} onChange={(e) => setNewUser({ ...newUser, subjects: e.target.value.split(", ") })} placeholder="Subjects (comma separated)"  required />
                                 </>
                               )}
                             </div>
-                            <button type="submit" className="px-6 py-2 mt-4 text-white bg-blue-600 rounded-md hover:bg-blue-700">
+                            <button type="submit" className={styles.formButton}>
                               Create User
                             </button>
                           </form>
@@ -383,9 +383,9 @@ export default function AdminDashboard() {
               </div>
 
               {/* Manage News */}
-              <div className="chartSection mn-section">
-                <div className="mn">
-                  <h2 className="text-2xl font-bold">Manage News</h2>
+              <div className={styles.chartSection}>
+                <div className={styles.mn}>
+                  <h2 className={styles.h2}>Manage News</h2>
                   <div className="space-y-4">
                     {news.map((item) => (
                       <div key={item.id} className="p-4 border rounded-md shadow-md">
@@ -397,24 +397,26 @@ export default function AdminDashboard() {
                 </div>
 
                 {/* Add News Item */}
-                <div className="mnc">
-                  <h3 className="text-xl font-semibold">Add News Item</h3>
+                <div className={styles.mnc}>
+                  <h3 className={styles.h3}>Add News Item</h3>
                   <form onSubmit={handleNewsSubmit} className="form">
                     <div>
-                      <label className="block font-medium">Title</label>
+                      <label className={styles.formLabel}>Title</label>
                       <input
+                        className={styles.formInput}
                         value={newNewsItem.title}
                         onChange={(e) => setNewNewsItem({ ...newNewsItem, title: e.target.value })}
                       />
                     </div>
                     <div>
-                      <label className="block font-medium">Content</label>
+                      <label className={styles.formLabel}>Content</label>
                       <textarea
                         value={newNewsItem.content}
+                        className={styles.formTextarea}
                         onChange={(e) => setNewNewsItem({ ...newNewsItem, content: e.target.value })}
                       />
                     </div>
-                    <button type="submit" className="px-6 py-2 mt-4 text-white bg-green-600 rounded-md hover:bg-green-700">
+                    <button type="submit" className={styles.formButton}>
                       Add News Item
                     </button>
                   </form>
@@ -435,11 +437,11 @@ export default function AdminDashboard() {
         </main>
 
         {/* Right Sidebar */}
-        <aside className={'rightSidebar'}>
+        <aside className={styles.rightSidebar}>
           {/* Calendar */}
-          <div className={'calendar'}>
-            <div className={'calendarHeader'}>
-              <h2 className="text-lg font-semibold">Event Calendar</h2>
+          <div className={styles.calendar}>
+            <div className={styles.calendarHeader}>
+              <h2 className={styles.h2}>Event Calendar</h2>
             </div>
             <Calendar
                 onChange={onChange}
@@ -448,8 +450,8 @@ export default function AdminDashboard() {
           </div>
 
           {/* Community Card */}
-          <div className={'communityCard'}>
-            <h2 className="text-xl font-semibold">Join the community and find out more</h2>
+          <div className={styles.communityCard}>
+            <h2 className={styles.h2}>Join the community and find out more</h2>
             <p className="text-sm mt-2">
               Join different community and keep updated with the live notices and messages.
             </p>

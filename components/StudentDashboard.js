@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { collection, query, where, getDocs } from "firebase/firestore"
 import { db } from "../lib/firebase"
 import { useAuth } from "../hooks/useAuth"
-import "../styles/Student.css"
+import styles from "../styles/Student.module.css"
 import { Bell, Newspaper, BookA, Home } from "lucide-react"
 
 export default function StudentDashboard() {
@@ -13,6 +13,7 @@ export default function StudentDashboard() {
   const [assignments, setAssignments] = useState([])
   const [tab, setTab] = useState("dashboard");
   const [currentDate, setCurrentDate] = useState(getDate());
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   useEffect(() => {
     const fetchStudentData = async () => {
@@ -50,74 +51,81 @@ export default function StudentDashboard() {
   }
 
   return (
-    <div className="dashboard-container">
+    <div className={styles.dashboardContainer}>
       {/* Sidebar */}
-      <nav className="sidebar">
-        <img src="amana.jpg" alt="Logo" width={64} height={64} className="logo" />
+      {isSidebarOpen && (
+      <nav className={`${styles.sidebar} ${styles.open}`}>
+        <img src="amana.jpg" alt="Logo" width={64} height={64} className={styles.logo} />
 
-        <div className={`sidebarLink ${tab === "dashboard" ? "sidebarLinkActive" : ""}`} onClick={() => setTab("dashboard")}>
+        <div className={`${styles.sidebarLink} ${tab === "dashboard" ? styles.sidebarLinkActive : ""}`} onClick={() => setTab("dashboard")}>
               <Home size={20} />
               <span>Dashboard</span>
         </div>
 
-        <div className={`sidebarLink ${tab === "news" ? "sidebarLinkActive" : ""}`} onClick={() => setTab("dashboard")}>
+        <div className={`${styles.sidebarLink} ${tab === "news" ? styles.sidebarLinkActive : ""}`} onClick={() => setTab("news")}>
               <Newspaper size={20} />
               <span>News</span>
         </div>
 
-        <div className={`sidebarLink ${tab === "news" ? "sidebarLinkActive" : ""}`} onClick={() => setTab("dashboard")}>
+        <div className={`${styles.sidebarLink} ${tab === "assignments" ? styles.sidebarLinkActive : ""}`} onClick={() => setTab("assignments")}>
               <BookA size={20} />
               <span>Assignment</span>
         </div>
 
         {/* Add other navigation items */}
       </nav>
+      )}
+      <div className={styles.hamburgerMenu} onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
+          <div className={styles.bar}></div>
+          <div className={styles.bar}></div>
+          <div className={styles.bar}></div>
+      </div>
 
       {/* Main Content */}
-      <main className="main-content">
+      <main className={styles.mainContent}>
         {/* Header */}
-        <header className="header">
-          <input type="search" placeholder="Search" className="search-bar" />
+        <header className={styles.header}>
+          <input type="search" placeholder="Search" className={styles.searchBar} />
 
-          <div className="user-profile">
-            <div className="user-info">
-              <div className="user-name">{studentData?.name}</div>
-              <div className="user-year">{studentData?.class}</div>
+          <div className={styles.userProfile}>
+            <div className={styles.userInfo}>
+              <div className={styles.userName}>{studentData?.name}</div>
+              <div className={styles.userYear}>{studentData?.class}</div>
             </div>
             <img
               src="/placeholder.svg?height=40&width=40"
               alt="Profile"
               width={40}
               height={40}
-              className="user-avatar"
+              className={styles.userAvatar}
             />
             <Bell size={20} />
           </div>
         </header>
 
         {/* Welcome Banner */}
-        <section className="welcome-banner">
-          <div className="welcome-content">
-            <div className="welcome-date">{currentDate}</div>
+        <section className={styles.welcomeBanner}>
+          <div className={styles.welcomeContent}>
+            <div className={styles.welcomeDate}>{currentDate}</div>
             <div>
-              <h1 className="welcome-title">Welcome back, {studentData?.name}</h1>
-              <p className="welcome-subtitle">Always stay updated in your student portal</p>
+              <h1 className={styles.welcomeTitle}>Welcome back, {studentData?.name}</h1>
+              <p className={styles.welcomeSubtitle}>Always stay updated in your student portal</p>
             </div>
           </div>
           <img
             src="student.png"
             alt="Welcome Illustrations"
-            className="welcome-illustrations"
+            className={styles.welcomeIllustrations}
           />
         </section>
 
         {/* Finance Section */}
         <section>
-          <div className="section-header">
-            <h2 className="section-title">Profile</h2>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>Profile</h2>
           </div>
 
-          <div className="profile-card">
+          <div className={styles.profileCard}>
             <div className=""><h3>Name:</h3> {studentData?.name}</div>
             <div className=""><h3>Class Teacher:</h3> {studentData?.assignedTeacher}</div>
             <div className=""><h3>Teacher's Phone No.:</h3> {studentData?.teacherPhone}</div>
@@ -126,26 +134,26 @@ export default function StudentDashboard() {
 
         {/* Enrolled Courses */}
         <section>
-          <div className="section-header">
-            <h2 className="section-title">Enrolled Courses</h2>
-            <a href="/courses" className="see-all">
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>Enrolled Courses</h2>
+            <a href="/courses" className={styles.seeAll}>
               See all
             </a>
           </div>
 
-          <div className="course-cards">
-            <div className="course-card active">
-              <div className="course-info">
+          <div className={styles.courseCards}>
+            <div className={`${styles.courseCard} ${styles.active}`}>
+              <div className={styles.courseInfo}>
                 <h3>Object oriented programming</h3>
-                <button className="view-button">View</button>
+                <button className={styles.viewButton}>View</button>
               </div>
               <img src="/placeholder.svg?height=80&width=80" alt="" width={80} height={80} />
             </div>
 
-            <div className="course-card">
-              <div className="course-info">
+            <div className={styles.courseCard}>
+              <div className={styles.courseInfo}>
                 <h3>Fundamentals of database systems</h3>
-                <button className="view-button">View</button>
+                <button className={styles.viewButton}>View</button>
               </div>
               <img src="/placeholder.svg?height=80&width=80" alt="" width={80} height={80} />
             </div>
@@ -153,15 +161,15 @@ export default function StudentDashboard() {
         </section>
 
         {/* Course Instructors */}
-        <section className="instructors-section">
-          <div className="section-header">
-            <h2 className="section-title">Course Instructors</h2>
-            <a href="/instructors" className="see-all">
+        <section className={styles.instructorsSection}>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>Course Instructors</h2>
+            <a href="/instructors" className={styles.seeAll}>
               See all
             </a>
           </div>
 
-          <div className="instructor-avatars">
+          <div className={styles.instructorAvatars}>
             {[1, 2, 3].map((i) => (
               <img
                 key={i}
@@ -169,27 +177,27 @@ export default function StudentDashboard() {
                 alt={`Instructor ${i}`}
                 width={48}
                 height={48}
-                className="instructor-avatar"
+                className={styles.instructorAvatar}
               />
             ))}
           </div>
 
           {/* Daily Notice */}
-          <div className="notice-card">
-            <h3 className="notice-title">Prelim payment due</h3>
-            <p className="notice-text">Norem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            <a href="/notices" className="see-more">
+          <div className={styles.noticeCard}>
+            <h3 className={styles.noticeTitle}>Prelim payment due</h3>
+            <p className={styles.noticeText}>Norem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <a href="/notices" className={styles.seeMore}>
               See more
             </a>
           </div>
 
-          <div className="notice-card">
-            <h3 className="notice-title">Exam schedule</h3>
-            <p className="notice-text">
+          <div className={styles.noticeCard}>
+            <h3 className={styles.noticeTitle}>Exam schedule</h3>
+            <p className={styles.noticeText}>
               Norem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac
               aliquet odio mattis.
             </p>
-            <a href="/schedule" className="see-more">
+            <a href="/schedule" className={styles.seeMore}>
               See more
             </a>
           </div>
