@@ -233,4 +233,8 @@ body {
     background-color: white;
   }
   
-  
+  @media (max-width: 480px) {
+    .left-side {
+      display: none;
+    }
+  }

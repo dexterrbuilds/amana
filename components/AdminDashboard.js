@@ -2,6 +2,8 @@ import { useState, useEffect, Image } from "react";
 import { collection, addDoc, getDocs, deleteDoc, doc, setDoc, query, where } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { db, auth } from "../lib/firebase";
+import { useAuth } from "../hooks/useAuth"
+import { signOut } from "firebase/auth"
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import "../styles/AdminDashboard.css";
@@ -27,6 +29,7 @@ import {
 
 
 export default function AdminDashboard() {
+  const user = useAuth()
   const [users, setUsers] = useState([])
   const [classes, setClasses] = useState([]);
   const [subjects, setSubjects] = useState([]);
@@ -242,7 +245,7 @@ export default function AdminDashboard() {
               <Settings size={20} />
               <span>Settings</span>
             </div>
-            <div className={'sidebarLink'}>
+            <div className={'sidebarLink'} onClick={() => signOut(auth)}>
               <LogOut size={20} />
               <span>Log out</span>
             </div>
@@ -394,7 +397,7 @@ export default function AdminDashboard() {
                 </div>
 
                 {/* Add News Item */}
-                <div className="mn">
+                <div className="mnc">
                   <h3 className="text-xl font-semibold">Add News Item</h3>
                   <form onSubmit={handleNewsSubmit} className="form">
                     <div>

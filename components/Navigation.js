@@ -2,20 +2,21 @@ import Link from "next/link"
 import { useAuth } from "../hooks/useAuth"
 import { signOut } from "firebase/auth"
 import { auth } from "../lib/firebase"
+import "../styles/nav.css"
 
 export default function Navigation() {
   const user = useAuth()
 
   return (
-    <nav className="bg-white shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex">
-            <Link href="/" className="flex-shrink-0 flex items-center">
-              <span className="font-bold text-xl">School Portal</span>
+    <nav>
+      <div>
+        <div className="button-container">
+          <div>
+            <Link href="/" className="school-portal">
+              <span className="font-bold text-xl">Home</span>
             </Link>
           </div>
-          <div className="flex items-center">
+          <div>
             {user ? (
               <>
                 <Link href="/dashboard" className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
@@ -29,7 +30,7 @@ export default function Navigation() {
                 </button>
               </>
             ) : (
-              <Link href="/login" className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+              <Link href="/login" className="login-button">
                 Login
               </Link>
             )}
