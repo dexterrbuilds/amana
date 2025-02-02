@@ -303,7 +303,7 @@
 
 @media (max-width: 480px) {
   .container {
-    width: 100vw;
+    width: 90vw;
   }
 
   .dashboardContainer {
@@ -313,7 +313,7 @@
   }
 
   .header {
-    width: 100%;
+    width: 95%;
     justify-content: center;
     position: fixed;
     background-color: white;
@@ -339,7 +339,6 @@
 
   .sectionHeader {
     display: block;
-    padding-left: 10px;
   }
 
   .courseCards {
