@@ -38,6 +38,7 @@ export default function AdminDashboard() {
   const [newUser, setNewUser] = useState({ name: "", email: "", role: "student", gender: "", class: "", subjects: [], teacher: "", phone: "" })
   const [toast, setToast] = useState(null)
   const [value, onChange] = useState(new Date());
+  const [sidebarVisible, setSidebarVisible] = useState(false);
 
   const classOptions = [
     "Pre-Nursery", "Nursery 1", "Nursery 2",
@@ -198,55 +199,62 @@ export default function AdminDashboard() {
     <div className={"container"}>
       <div className={"mainGrid"}>
         {/* Left Sidebar */}
-        <aside className={"sidebar"}>
+        <aside className={`sidebar ${sidebarVisible ? "visible" : ""}`}>
           <div className={"sidebarLogo"}>
             <img src="amana.jpg" width={40} height={40} alt="Logo" />
             <span className="text-2xl font-semibold">AMANA</span>
           </div>
 
           <nav className={'sidebarNav'}>
-            <div className={`sidebarLink ${tab === "dashboard" ? "sidebarLinkActive" : ""}`} onClick={() => setTab("dashboard")}>
+            <div className={`sidebarLink ${tab === "dashboard" ? "sidebarLinkActive" : ""}`} onClick={() => { setTab("dashboard"); setSidebarVisible(!sidebarVisible); }}>
               <Home size={20} />
               <span>Dashboard</span>
             </div>
-            <div className={`sidebarLink ${tab === "students" ? "sidebarLinkActive" : ""}`} onClick={() => setTab("students")}>
+            <div className={`sidebarLink ${tab === "students" ? "sidebarLinkActive" : ""}`} onClick={() => { setTab("students"); setSidebarVisible(!sidebarVisible); }}>
               <Users size={20} />
               <span>Students</span>
             </div>
-            <div   className={`sidebarLink ${tab === "teachers" ? "sidebarLinkActive" : ""}`} onClick={() => setTab("teachers")}>
+            <div className={`sidebarLink ${tab === "teachers" ? "sidebarLinkActive" : ""}`} onClick={() => { setTab("teachers"); setSidebarVisible(!sidebarVisible); }}>
               <GraduationCap size={20} />
               <span>Teachers</span>
             </div>
-            <div   className={`sidebarLink ${tab === "parents" ? "sidebarLinkActive" : ""}`} onClick={() => setTab("parents")}>
+            <div className={`sidebarLink ${tab === "parents" ? "sidebarLinkActive" : ""}`} onClick={() => { setTab("parents"); setSidebarVisible(!sidebarVisible); }}>
               <UserPlus size={20} />
               <span>Parents</span>
             </div>
-            <div   className={`sidebarLink ${tab === "account" ? "sidebarLinkActive" : ""}`} onClick={() => setTab("account")}>
+            <div className={`sidebarLink ${tab === "account" ? "sidebarLinkActive" : ""}`} onClick={() => { setTab("account"); setSidebarVisible(!sidebarVisible); }}>
               <DollarSign size={20} />
               <span>Account</span>
             </div>
-            <div   className={`sidebarLink ${tab === "class" ? "sidebarLinkActive" : ""}`} onClick={() => setTab("class")}>
+            <div className={`sidebarLink ${tab === "class" ? "sidebarLinkActive" : ""}`} onClick={() => { setTab("class"); setSidebarVisible(!sidebarVisible); }}>
               <Book size={20} />
               <span>Class</span>
             </div>
-            <div   className={`sidebarLink ${tab === "exam" ? "sidebarLinkActive" : ""}`} onClick={() => setTab("exam")}>
+            <div className={`sidebarLink ${tab === "exam" ? "sidebarLinkActive" : ""}`} onClick={() => { setTab("exam"); setSidebarVisible(!sidebarVisible); }}>
               <FileText size={20} />
               <span>Exam</span>
             </div>
-            <div   className={`sidebarLink ${tab === "transport" ? "sidebarLinkActive" : ""}`} onClick={() => setTab("transport")}>
+            <div className={`sidebarLink ${tab === "transport" ? "sidebarLinkActive" : ""}`} onClick={() => { setTab("transport"); setSidebarVisible(!sidebarVisible); }}>
               <Bus size={20} />
               <span>Transport</span>
             </div>
-            <div   className={`sidebarLink ${tab === "settings" ? "sidebarLinkActive" : ""}`} onClick={() => setTab("settings")}>
+            <div className={`sidebarLink ${tab === "settings" ? "sidebarLinkActive" : ""}`} onClick={() => { setTab("settings"); setSidebarVisible(!sidebarVisible); }}>
               <Settings size={20} />
               <span>Settings</span>
             </div>
-            <div   className={'sidebarLink'}>
+            <div className={'sidebarLink'}>
               <LogOut size={20} />
               <span>Log out</span>
             </div>
           </nav>
         </aside>
+
+        {/* Mobile Menu Toggle */}
+        <div className={`hamburger ${sidebarVisible ? "active" : ""}`} onClick={() => setSidebarVisible(!sidebarVisible)}>
+          <div className="bar"></div>
+          <div className="bar"></div>
+          <div className="bar"></div>
+        </div>
 
         {/* Main Content */}
         <main className={'mainContent'}>
@@ -372,7 +380,7 @@ export default function AdminDashboard() {
               </div>
 
               {/* Manage News */}
-              <div className="chartSection">
+              <div className="chartSection mn-section">
                 <div className="mn">
                   <h2 className="text-2xl font-bold">Manage News</h2>
                   <div className="space-y-4">
@@ -386,7 +394,7 @@ export default function AdminDashboard() {
                 </div>
 
                 {/* Add News Item */}
-                <div>
+                <div className="mn">
                   <h3 className="text-xl font-semibold">Add News Item</h3>
                   <form onSubmit={handleNewsSubmit} className="form">
                     <div>
