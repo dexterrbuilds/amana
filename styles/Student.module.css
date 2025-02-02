@@ -303,13 +303,13 @@
 
 @media (max-width: 480px) {
   .container {
-    width: 90vw;
+    width: 100vw;
   }
 
   .dashboardContainer {
     display: block;
     width: 90vw;
-    padding: 20px;
+    padding: 20px 0;
   }
 
   .header {
@@ -339,6 +339,7 @@
 
   .sectionHeader {
     display: block;
+    padding-left: 10px;
   }
 
   .courseCards {
@@ -349,7 +350,7 @@
     width: 100%;
     left: 0;
     margin-left: 0;
-    padding: 60px 10px 0;
+    padding: 60px 0 0;
   }
 
   .hamburgerMenu {
@@ -376,6 +377,7 @@
   }
 
   .welcomeBanner {
-    width: 100%;
+    width: 80%;
+    margin-left: 10px;
   }
 }
